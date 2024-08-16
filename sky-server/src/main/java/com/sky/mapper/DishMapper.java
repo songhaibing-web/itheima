@@ -7,7 +7,6 @@ import com.sky.entity.Dish;
 import com.sky.enumeration.OperationType;
 import com.sky.vo.DishVO;
 import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
@@ -43,6 +42,14 @@ public interface DishMapper {
      */
     @Select("select * from dish where id = #{id}")
     Dish getById(Long id);
+
+    /**
+     * 根据菜品分类id查询菜品
+     * @param dish
+     * @return
+     */
+    @Select("select * from dish where category_id = #{categoryId} and status = #{status}")
+    List<Dish> list(Dish dish);
 
     /**
      * 根据菜品ID删除菜品
