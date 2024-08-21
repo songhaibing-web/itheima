@@ -29,19 +29,19 @@ public interface DishMapper {
      */
     @AutoFill(value = OperationType.INSERT)
     void insert(Dish dish);
-
-    /**
-     * 菜品分页查询
-     * @param dishPageQueryDTO
-     */
-    Page<DishVO> pageQuery(DishPageQueryDTO dishPageQueryDTO);
-
     /**
      * 根据ID查询菜品
      * @param id
      */
     @Select("select * from dish where id = #{id}")
     Dish getById(Long id);
+    /**
+     * 菜品分页查询
+     * @param dishPageQueryDTO
+     */
+    Page<DishVO> pageQuery(DishPageQueryDTO dishPageQueryDTO);
+
+
 
     /**
      * 根据菜品分类id查询菜品
